@@ -27,7 +27,7 @@ app.get('/ping',(req,res)=>{
 app.use('/api',userRoute);
 app.use('/api',loginRoute);
 
-const PORT = 4001;
+const PORT = process.env.PORT;
 app.listen(PORT,()=>{
     console.log(`listening on http://localhost:${PORT}`);
 });
