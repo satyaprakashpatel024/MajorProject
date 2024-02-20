@@ -6,7 +6,7 @@ let jwt = require('jsonwebtoken');
 
 router.post('/login', async (req, res) => {
 	const userInfo = req.body;
-    console.log(userInfo);
+    // console.log(userInfo);
     let searchData;
 	try {
 		searchData = await User.findOne({ email: userInfo.email });
@@ -21,9 +21,11 @@ router.post('/login', async (req, res) => {
     .catch((err) => {
 		console.log(err, 'err while matching passoword');
 		res.status(500).send({ msg: 'Internal server err' });
+		return ;
 	});
 	if (!validPassword) {
 		res.send({ msg: 'Invalid password' });
+		return ;
 	} else {
 		let data = JSON.stringify(searchData.email);
 		let token = jwt.sign(data, 'EFBWUYFBUWBFUWVYFBUWEF');
@@ -31,6 +33,7 @@ router.post('/login', async (req, res) => {
 			token,
 			msg: 'login ho gyaa',
 		});
+		return ;
 	}
 });
 

@@ -21,14 +21,14 @@ router.post('/users', async (req, res) => {
 	}
 });
 // npm i jsonwebtoken
-router.get('/users', async (req, res) => {
-	try {
-		const users = await User.find();
-		res.json(users);
-	} catch (error) {
-		console.error('Error getting users:', error);
-		res.status(500).json({ error: 'Internal Server Error' });
-	}
-});
+// router.get('/users', async (req, res) => {
+// 	try {
+// 		const users = await User.find();
+// 		res.json(users);
+// 	} catch (error) {
+// 		console.error('Error getting users:', error);
+// 		res.status(500).json({ error: 'Internal Server Error' });
+// 	}
+// });
 
 module.exports = router;
