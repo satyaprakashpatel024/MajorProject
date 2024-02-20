@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+require('dotenv').config();
 const userRoute = require('./routes/signup.js');
 const loginRoute = require('./routes/login.js');
-// const MONGODB_URL = "mongodb://localhost:27017/zomato";
-const MONGODB_URL = "mongodb+srv://ZomatoUser:vWw6EJa8R4JpwRCq@zomatoclone.dood9jq.mongodb.net/zomato" || "mongodb://localhost:27017/zomato";
+const MONGODB_URL = process.env.MONGODB_URL //|| "mongodb://localhost:27017/zomato";
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
