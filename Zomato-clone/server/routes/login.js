@@ -14,26 +14,21 @@ router.post('/login', async (req, res) => {
 		console.log(err, 'err');
 	}
 	if (!searchData) {
-		res.status(401).send({ msg: 'signUp kiya tune ???' });
-        return ;
+		return res.status(401).send({ msg: 'signUp kiya tune ???' });
 	}
 	const validPassword = await bcrypt.compare(userInfo.passWord,searchData.passWord)
     .catch((err) => {
-		console.log(err, 'err while matching passoword');
-		res.status(500).send({ msg: 'Internal server err' });
-		return ;
+		return res.status(500).send({ msg: 'Internal server err' });
 	});
 	if (!validPassword) {
-		res.send({ msg: 'Invalid password' });
-		return ;
+		return res.send({ msg: 'Invalid password' });
 	} else {
 		let data = JSON.stringify(searchData.email);
 		let token = jwt.sign(data, 'EFBWUYFBUWBFUWVYFBUWEF');
-		res.send({
+		return res.send({
 			token,
 			msg: 'login ho gyaa',
 		});
-		return ;
 	}
 });
 

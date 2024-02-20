@@ -17,11 +17,11 @@ mongoose.connect(MONGODB_URL)
 })
 
 app.get('/',(req,res)=>{
-    res.send('Hello World');
+    return res.send('Hello World');
 })
 
 app.get('/ping',(req,res)=>{
-    res.send('<h1>pong</h1>');
+    return res.send('<h1>pong</h1>');
 })
 
 app.use('/api',userRoute);

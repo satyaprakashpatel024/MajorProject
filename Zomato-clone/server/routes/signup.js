@@ -7,7 +7,7 @@ router.post('/users', async (req, res) => {
 	const user = req.body;
 	const Email = await User.findOne({ email: user.email });
 	if (Email) {
-		res.send('user is already register in  our dataBase');
+		return res.send('user is already register in  our dataBase');
 	} else {
 		user.passWord = await bcrypt.hash(req.body.passWord, 10);
 		const dbUser = new User({
@@ -17,7 +17,7 @@ router.post('/users', async (req, res) => {
 			role: user.role,
 		});
 		await dbUser.save();
-		res.send({ messge: 'done' });
+		return res.send({ messge: 'done' });
 	}
 });
 
