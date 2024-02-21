@@ -17,7 +17,10 @@ router.post('/users', async (req, res) => {
 			role: user.role,
 		});
 		await dbUser.save();
-		return res.send({ messge: 'done' });
+		return res.send({ 
+			messge: 'user created successfully',
+			success : true
+		});
 	}
 });
 

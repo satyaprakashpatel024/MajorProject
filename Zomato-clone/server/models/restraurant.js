@@ -24,6 +24,6 @@ let RestrauantSchema = new mongoose.Schema({
 	},
 });
 
-let Restrauant = mongoose.model('product', RestrauantSchema);
+let Restrauant = mongoose.model('restraurant', RestrauantSchema);
 
 module.exports = Restrauant;
