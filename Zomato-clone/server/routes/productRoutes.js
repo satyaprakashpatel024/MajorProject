@@ -6,6 +6,11 @@ let Product = require('../models/products.js');
 router.post('/product', async (req, res) => {
 	try {
 		let product = new Product(req.body);
+		if(!product){
+			return res.status(400).json({
+				message: 'failed to add product'
+			});
+		}
 		await product.save();
 		return res.status(201).send(product);
 	} catch (err) {
