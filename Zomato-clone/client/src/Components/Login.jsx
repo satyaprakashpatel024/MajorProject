@@ -48,7 +48,7 @@ const Login = () => {
 	const fun1 = (e) => {
 		let { name, value } = e.target;
 		setInput({ ...input, [name]: value });
-		console.log(input);
+		// console.log(input);
 	};
 
 	// fetch('http://localhost:4000/login')
@@ -58,7 +58,7 @@ const Login = () => {
 
 	const handleLogin = async (e)=>{
 		e.preventDefault();
-		const response = await axios.post("http://localhost:4001/login", input);     
+		const response = await axios.post("http://localhost:4001/api/login", input);     
         console.log(response.data);
 	}
 
