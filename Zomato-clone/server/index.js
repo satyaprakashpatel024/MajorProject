@@ -8,8 +8,8 @@ app.use(express.json());
 const userRoute = require('./routes/userRoutes.js');
 const restraurantRoute = require('./routes/restraurantRoutes.js');
 const productRoute = require('./routes/productRoutes.js');
-
-const MONGODB_URL = "mongodb+srv://ZomatoUser:vWw6EJa8R4JpwRCq@zomatoclone.dood9jq.mongodb.net/zomato" //||%20%22mongodb://localhost:27017/zomato" || "mongodb://localhost:27017/zomato";
+const menuRoute = require('./routes/menuRoutes.js');
+const MONGODB_URL = "mongodb+srv://ZomatoUser:vWw6EJa8R4JpwRCq@zomatoclone.dood9jq.mongodb.net/zomato" // || "mongodb://localhost:27017/zomato";
 mongoose.connect(MONGODB_URL)
 .then((conn)=>{
     console.log('connected to mongodb');
@@ -28,9 +28,8 @@ app.get('/ping',(req,res)=>{
 
 app.use('/api',userRoute);
 app.use('/api',restraurantRoute);
-// app.use('/api',restraurantRoute);
-// app.use('/api',restraurantRoute);
 app.use('/api',productRoute);
+app.use('/api',menuRoute);
 
 const PORT = process.env.PORT;
 app.listen(PORT,()=>{

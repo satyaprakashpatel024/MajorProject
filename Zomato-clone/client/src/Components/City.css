@@ -1,0 +1,18 @@
+.card1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 351px;
+    height: 55px;
+    border: 2px solid grey;
+}
+
+#text{
+    text-align: center;
+    font-weight: 400;
+    font-size: x-large;
+}
+
+.temp{
+    border-radius: 5px;
+}

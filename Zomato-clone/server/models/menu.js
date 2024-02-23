@@ -6,8 +6,10 @@ let menuSchema = new mongoose.Schema({
 	descriptions: {
 		type: String,
 	},
-	price: {
-		type: Number,
+	category: {
+		type: String,
+		enum:['veg','non-veg'],
+		default:'veg'
 	},
 });
 
