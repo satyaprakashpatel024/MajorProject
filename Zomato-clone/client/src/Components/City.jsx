@@ -5,7 +5,7 @@ const City = () => {
 		<div>
 			<div className="mt-5 container w-75 d-flex justify-content-center align-items-center flex-column">
 				<h1>Popular locations in 😎 India</h1>
-				<p className="mt-5" id="text">From swanky upscale restaurants to the cosiest hidden gems serving the most incredible food, Zomato covers it all. Explore menus, and millions of restaurant photos and reviews from users just like you, to find your next great meal.</p>
+				<p className="mt-5" id="textParagraph">From swanky upscale restaurants to the cosiest hidden gems serving the most incredible food, Zomato covers it all. Explore menus, and millions of restaurant photos and reviews from users just like you, to find your next great meal.</p>
 			</div>
 			<section>
 				<div className="container w-75 mt-5">

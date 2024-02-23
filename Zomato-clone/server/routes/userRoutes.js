@@ -1,11 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
-let bcrypt = require('bcrypt');
-let jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const emailValidator = require('email-validator');
 
-router.post('/users', async (req, res) => {
+router.post('/signup', async (req, res) => {
 	const user = req.body;
+	const isValidEmail =  emailValidator(user.email);
+	if (!isValidEmail) {
+        return res.status(400).json({
+            message: 'Invalid email',
+        });
+    }
 	const Email = await User.findOne({ email: user.email });
 	if (Email) {
 		return res.send('user is already register in  our dataBase');
