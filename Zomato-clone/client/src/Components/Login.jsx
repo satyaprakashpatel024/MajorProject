@@ -58,7 +58,7 @@ const Login = () => {
 
 	const handleLogin = async (e)=>{
 		e.preventDefault();
-		const response = await axios.post("http://localhost:4000/login", input);     
+		const response = await axios.post("http://localhost:4001/login", input);     
         console.log(response.data);
 	}
 
