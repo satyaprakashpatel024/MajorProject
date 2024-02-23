@@ -6,10 +6,12 @@ const cors = require('cors');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors({origin:process.env.CLIENT_URL,credential:true}));
+
 const userRoute = require('./routes/userRoutes.js');
 const restraurantRoute = require('./routes/restraurantRoutes.js');
 const productRoute = require('./routes/productRoutes.js');
 const menuRoute = require('./routes/menuRoutes.js');
+
 const MONGODB_URL = "mongodb+srv://ZomatoUser:vWw6EJa8R4JpwRCq@zomatoclone.dood9jq.mongodb.net/zomato" // || "mongodb://localhost:27017/zomato";
 mongoose.connect(MONGODB_URL)
 .then((conn)=>{
