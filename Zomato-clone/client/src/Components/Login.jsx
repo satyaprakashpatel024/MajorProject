@@ -17,15 +17,11 @@ const Login = () => {
 		// console.log(input);
 	};
 
-	// fetch('http://localhost:4000/login')
-	// .then(function (response) {
-	// 	return response.json();
-	// });
-
 	const handleLogin = async (e)=>{
 		e.preventDefault();
 		const response = await axios.post("http://localhost:4001/api/login", input);     
         console.log(response.data);
+		
 	}
 
 	return (

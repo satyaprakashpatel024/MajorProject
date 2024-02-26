@@ -6,24 +6,29 @@ import email_icon from "../Assets/email.png";
 import password_icon from "../Assets/password.png";
 import "./SignUp.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+	let navigate = useNavigate();
 	const [input, setInput] = useState({
 		name: "",
 		email: "",
 		passWord: "",
 	});
-
+	
 	const fun1 = (e) => {
 		let { name, value } = e.target;
 		setInput({ ...input, [name]: value });
-		console.log(input);
+		// console.log(input);
 	};
-
+	
 	const handleSubmit = async (e)=>{
 		e.preventDefault();
 		const response = await axios.post("http://localhost:4001/api/signup", input);
         console.log(response.data);
+		if(response){
+			navigate('/login');
+		}
 	}
 
 	return (
