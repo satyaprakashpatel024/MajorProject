@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import email_icon from "../Assets/email.png";
 import password_icon from "../Assets/password.png";
 import "./Login.css";
 import axios from "axios";
 
 const Login = () => {
+	let navigate = useNavigate();
 	const [input, setInput] = useState({
 		email: "",
 		passWord: "",
@@ -14,14 +15,16 @@ const Login = () => {
 	const fun1 = (e) => {
 		let { name, value } = e.target;
 		setInput({ ...input, [name]: value });
-		// console.log(input);
 	};
 
 	const handleLogin = async (e)=>{
 		e.preventDefault();
 		const response = await axios.post("http://localhost:4001/api/login", input);     
         console.log(response.data);
-		
+		if(response.data){
+			localStorage.setItem('userData', JSON.stringify(response.data));
+			navigate('/');
+		}
 	}
 
 	return (

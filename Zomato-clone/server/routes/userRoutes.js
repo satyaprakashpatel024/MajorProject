@@ -28,7 +28,6 @@ router.post('/signup', async (req, res) => {
 
 router.post('/login', async (req, res) => {
 	const userInfo = req.body;
-    // console.log(userInfo); 
     let searchData;
 	try {
 		searchData = await User.findOne({ email: userInfo.email });
@@ -49,7 +48,7 @@ router.post('/login', async (req, res) => {
 		let token = jwt.sign(data, 'EFBWUYFBUWBFUWVYFBUWEF');
 		return res.send({
 			token,
-			msg: 'login ho gyaa',
+			data: searchData
 		});
 	}
 });
