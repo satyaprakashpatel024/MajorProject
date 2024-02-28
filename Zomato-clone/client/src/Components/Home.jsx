@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Home.css';
+import './Home.css';
 import { NavLink } from 'react-router-dom';
 import { FaUserAlt } from 'react-icons/fa';
 import { BiLogInCircle } from 'react-icons/bi';
