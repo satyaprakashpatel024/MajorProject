@@ -42,7 +42,9 @@ router.post('/login', async (req, res) => {
 		return res.status(500).send({ msg: 'Internal server err' });
 	});
 	if (!validPassword) {
-		return res.send({ msg: 'Invalid password' });
+		return res.send({ msg: 'Invalid password',
+		
+	});
 	} else {
 		let data = JSON.stringify(searchData.email);
 		let token = jwt.sign(data, 'EFBWUYFBUWBFUWVYFBUWEF');
