@@ -44,7 +44,7 @@ const Home = () => {
 				<div className='div2'>
 					{ data!=null ? (
 						<>
-							<p>{data.data.name}</p>
+							<p><FaUserAlt />{data.data.name}</p>
 							<span className='floar-right1'>
 								<FaUserAlt />
 								<NavLink onClick={remove} className='color-b'>Logout</NavLink>

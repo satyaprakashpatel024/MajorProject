@@ -31,7 +31,6 @@ const Card = () => {
                     <p>stay home stay safe</p>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
