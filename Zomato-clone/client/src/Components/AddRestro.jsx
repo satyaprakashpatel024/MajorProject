@@ -19,19 +19,20 @@ const AddRestaurant = () => {
 
 	const handleImageChange = (e) => {
 		const file = e.target.files[0];
-		console.log(file);
+		// console.log(file,'Image changed');
 		setRestaurantData({ ...restaurantData, image: file });
 	};
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setRestaurantData({ ...restaurantData, [name]: value });
+		// console.log(restaurantData,'data');
 	};
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
 			// Upload image to Supabase
 			const { data, error } = await supabase.storage.from('zomato').upload('restaurant_images/' + restaurantData.image.name, restaurantData.image);
-			console.log(data);
+			// console.log(data);
             if (error) {
 				throw error;
 			}
@@ -39,11 +40,11 @@ const AddRestaurant = () => {
 			// https://fzdfcdjjbsnwmdvxhfrh.supabase.co/storage/v1/object/public/zomato/restaurant_images/india-flag.jpg
 			// Get the URL of the uploaded image
 			const imageUrl = `${supabaseUrl}/storage/v1/object/public/zomato/restaurant_images/${restaurantData.image.name}`;
-			console.log(imageUrl, 'blocking zzzzzzz');
+			// console.log(imageUrl, 'blocking zzzzzzz');
 
 			// Save restaurant data to MongoDB with image URL
 			const response = await axios.post('http://localhost:4001/api/restro', { ...restaurantData, image: imageUrl });
-			console.log(response,'response');
+			// console.log(response,'response');
             if (response.status === 201) {
 				alert('Restaurant added successfully');
 				// Reset form field
