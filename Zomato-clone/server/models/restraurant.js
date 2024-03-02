@@ -15,11 +15,11 @@ let RestrauantSchema = new mongoose.Schema({
 		type: String,
         required : true
 	},
-	contact_no: {
-		type: String,
+	contactNo: {
+		type: Number,
         required : true
 	},
-	opening_time: {
+	openingTime: {
 		type: Date,
 	},
 });

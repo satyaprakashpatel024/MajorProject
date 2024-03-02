@@ -7,7 +7,10 @@ router.post('/restro', async (req, res) => {
 	try {
 		let restraurant = new Restraurant(req.body);
 		await restraurant.save();
-		return res.status(201).send(restraurant);
+		// console.log(restraurant);
+		return res.status(201).send({
+			restraurant,
+			msg:"restraurant added successfully"});
 	} catch (err) {
 		return res.status(402).send('err');
 	}

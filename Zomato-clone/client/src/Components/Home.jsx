@@ -14,9 +14,9 @@ const Home = () => {
 	const [data, setData] = useState(null);
 	useEffect(() => {
 		let data = localStorage.getItem('userData');
-		console.log(data);
+		// console.log(data);
 		let newData = JSON.parse(data);
-		console.log(newData);
+		// console.log(newData);
 		setData(newData);
 	}, []);
 
