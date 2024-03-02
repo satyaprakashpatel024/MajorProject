@@ -32,7 +32,7 @@ const AddRestaurant = () => {
 		try {
 			// Upload image to Supabase
 			const { data, error } = await supabase.storage.from('zomato').upload('restaurant_images/' + restaurantData.image.name, restaurantData.image);
-			// console.log(data);
+			console.log(data);
             if (error) {
 				throw error;
 			}
