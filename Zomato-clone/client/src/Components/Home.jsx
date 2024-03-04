@@ -31,8 +31,8 @@ const Home = () => {
 			<div className='icons-bg'>
 				<div className='div1'>
 					<span className='floar-right1'>
-						<NavLink to='/viewfood' className='color-b'>
-							View Food
+						<NavLink to='/view' className='color-b'>
+							View Restro
 						</NavLink>
 					</span>
 					<span className='floar-right2'>
