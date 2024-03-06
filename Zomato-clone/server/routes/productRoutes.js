@@ -1,20 +1,64 @@
 const express = require('express');
 const router = express.Router();
 let Product = require('../models/products.js');
-
-//  create api to add product
+let Restrauant = require('../models/restraurant.js');
+//  create api to add product in particular restraurant
 router.post('/product', async (req, res) => {
+	// try {
+	// 	let product = new Product(req.body);
+	// 	if(!product){
+	// 		return res.status(400).json({
+	// 			message: 'failed to add product'
+	// 		});
+	// 	}
+	// 	await product.save();
+	// 	return res.status(201).send(product);
+	// } catch (err) {
+	// 	return res.status(402).send({err});
+	// }
 	try {
-		let product = new Product(req.body);
-		if(!product){
+		const {name,description,price,image,restroId} = req.body;
+		if(!name||!description||!price||!image||!restroId){
 			return res.status(400).json({
-				message: 'failed to add product'
-			});
+                message: 'all fields are required'
+            });
 		}
-		await product.save();
-		return res.status(201).send(product);
-	} catch (err) {
-		return res.status(402).send({err});
+		console.log(req.body);
+		const restraurant = await Restrauant.findById(restroId);
+		console.log(restraurant,'restraurant');
+        if (!restraurant) {
+			return res.status(404).json({
+				message: 'Restaurant not found'
+			})
+		}
+		try {
+			const product = new Product({
+				name,
+				description,
+				price,
+				image,
+				restraurant:restroId,
+			})
+			const result = await product.save();
+			if(!result){
+				return res.status(400).json({
+                    message: 'failed to add product'
+                });
+			}
+			return res.status(201).json({
+				message:true,
+				result
+			})
+		} catch (error) {
+			return res.status(400).json({
+				error:error
+			})
+		}
+	} catch (error) {
+		return  res.status(500).json({
+			message:false,
+			error:error
+		})
 	}
 });
 

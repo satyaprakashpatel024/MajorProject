@@ -12,6 +12,10 @@ let ProductSchema = new mongoose.Schema({
 	image: {
 		type: String,
 	},
+	restraurant:{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Restrauant',
+	}
 });
 
 let Product = mongoose.model('product', ProductSchema);

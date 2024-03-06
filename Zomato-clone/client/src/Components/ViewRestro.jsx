@@ -1,9 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-// import arr from './FoodData';
-import { useState, useEffect } from 'react';
+import {useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 
 const ViewRestro = () => {
 	const navigate = useNavigate();
@@ -15,14 +13,13 @@ const ViewRestro = () => {
 		async function fetchData() {
 			try {
 				const response = await axios.get('http://localhost:4001/api/restro');
-				console.log(response.data, 'resss');
+				// console.log(response.data, 'resss');
 
 				SetSearch(response.data);
 			} catch (error) {
 				console.error('Error fetching data:', error);
 			}
 		}
-
 		fetchData();
 	}, []);
 
@@ -38,7 +35,7 @@ const ViewRestro = () => {
 	};
 
 	const showFood = (id)=>{
-		console.log(id,'iiiiiiiiiiiii');
+		// console.log(id,'iiiiiiiiiiiii');
 		navigate(`/view/${id}/product`);
 	}
 
@@ -78,9 +75,9 @@ const ViewRestro = () => {
 								<li className='list-group-item'>Opening Time: {res.openingTime}</li>
 							</ul>
 							<div className='card-body'>
-								<a href='#' className='card-link'>
+								<Link href='#' className='card-link'>
 									View Details
-								</a>
+								</Link>
 							</div>
 						</div>
 					))}

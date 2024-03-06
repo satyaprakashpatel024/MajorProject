@@ -6,6 +6,7 @@ import SignUp from './Components/SignUp';
 import AddRestro from './Components/AddRestro';
 import Viewfood from './Components/ViewFood.jsx';
 import ViewRestro from './Components/ViewRestro.jsx';
+import AddProduct from './Components/AddProduct.jsx';
 
 const App = () => {
   return (
@@ -15,8 +16,9 @@ const App = () => {
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<SignUp/>} />
         <Route path='/addrestro' element={<AddRestro/>} />
-        <Route path='/view' element={<ViewRestro/>} />
-        <Route path='/view/:id/product' element={<Viewfood/>} />
+        <Route path='/view' element={<ViewRestro/>}/>
+        <Route path='/view/:id/product' element={<Viewfood/>}/>
+        <Route path='/view/:id/addproduct' element={<AddProduct/>}/>
       </Routes>
     </div>
   )
