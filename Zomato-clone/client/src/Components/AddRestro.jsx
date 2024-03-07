@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import './AddRestro.css'; // Import the CSS file
 import axios from 'axios';
 
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = 'https://oxndvhwlazbwmnrzblia.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94bmR2aHdsYXpid21ucnpibGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkzMDI0MDQsImV4cCI6MjAyNDg3ODQwNH0.rXvWMF3kJ6SNPqV4DFJnAlrKWPmJPOGrRFsW1mmqRPI';
+const supabaseKey =
+	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94bmR2aHdsYXpid21ucnpibGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkzMDI0MDQsImV4cCI6MjAyNDg3ODQwNH0.rXvWMF3kJ6SNPqV4DFJnAlrKWPmJPOGrRFsW1mmqRPI';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const AddRestaurant = () => {
@@ -31,13 +32,13 @@ const AddRestaurant = () => {
 			// Upload image to Supabase
 			const { data, error } = await supabase.storage.from('zomato').upload('restaurant_images/' + restaurantData.image.name, restaurantData.image);
 			console.log(data);
-            if (error) {
+			if (error) {
 				throw error;
 			}
 
 			// Get the URL of the uploaded image
 			const imageUrl = `${supabaseUrl}/storage/v1/object/public/zomato/restaurant_images/${restaurantData.image.name}`;
-			
+
 			// Save restaurant data to MongoDB with image URL
 			const response = await axios.post('http://localhost:4001/api/restro', { ...restaurantData, image: imageUrl });
 			if (response.status === 201) {
@@ -53,8 +54,8 @@ const AddRestaurant = () => {
 	};
 
 	return (
-		<div>
-			<h2>Add Restaurant</h2>
+		<div id='parent'>
+			{/* <h2>Add Restaurant</h2> */}
 			<form onSubmit={handleSubmit}>
 				<div className='form-group'>
 					<label>Name:</label>

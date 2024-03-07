@@ -4,18 +4,6 @@ let Product = require('../models/products.js');
 let Restrauant = require('../models/restraurant.js');
 //  create api to add product in particular restraurant
 router.post('/product', async (req, res) => {
-	// try {
-	// 	let product = new Product(req.body);
-	// 	if(!product){
-	// 		return res.status(400).json({
-	// 			message: 'failed to add product'
-	// 		});
-	// 	}
-	// 	await product.save();
-	// 	return res.status(201).send(product);
-	// } catch (err) {
-	// 	return res.status(402).send({err});
-	// }
 	try {
 		const {name,description,price,image,restroId} = req.body;
 		if(!name||!description||!price||!image||!restroId){
@@ -23,9 +11,9 @@ router.post('/product', async (req, res) => {
                 message: 'all fields are required'
             });
 		}
-		console.log(req.body);
+		// console.log(req.body);
 		const restraurant = await Restrauant.findById(restroId);
-		console.log(restraurant,'restraurant');
+		// console.log(restraurant,'restraurant');
         if (!restraurant) {
 			return res.status(404).json({
 				message: 'Restaurant not found'
@@ -67,7 +55,7 @@ router.get('/product', async (req, res) => {
 	try {
 		let product = await Product.find();
 		if (!product) {
-			return res.send('restraurant not foundddd');
+			return res.send('product not foundddd');
 		} else {
 			return res.send(product);
 		}

@@ -2,6 +2,7 @@ import React from 'react';
 import {useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate,Link } from 'react-router-dom';
+import './ViewRestro.css';
 
 const ViewRestro = () => {
 	const navigate = useNavigate();
