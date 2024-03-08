@@ -15,7 +15,6 @@ const ViewRestro = () => {
 			try {
 				const response = await axios.get('http://localhost:4001/api/restro');
 				// console.log(response.data, 'resss');
-
 				SetSearch(response.data);
 			} catch (error) {
 				console.error('Error fetching data:', error);
