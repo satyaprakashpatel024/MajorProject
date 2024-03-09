@@ -4,14 +4,13 @@ import Home from './Components/Home';
 import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import AddRestro from './Components/AddRestro';
-import Viewfood from './Components/ViewFood.jsx';
 import ViewRestro from './Components/ViewRestro.jsx';
+import Viewfood from './Components/ViewFood.jsx';
 import AddProduct from './Components/AddProduct.jsx';
 
 const App = () => {
 	return (
 		<div className='head'>
-      
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/login' element={<Login />} />

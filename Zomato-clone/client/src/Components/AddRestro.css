@@ -1,13 +1,15 @@
-*{
-	margin: 5px;
+* {
+	margin: 0px;
 	padding: 0px;
 }
 
-#parent{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+#parent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+    gap: 5px;
+	height: 100vh;
 }
 
 /* #container1{
