@@ -54,6 +54,7 @@ router.post('/product', async (req, res) => {
 router.get('/product', async (req, res) => {
 	try {
 		let product = await Product.find();
+		// console.log(product,'pppppppppppppppp');
 		if (!product) {
 			return res.send('product not foundddd');
 		} else {

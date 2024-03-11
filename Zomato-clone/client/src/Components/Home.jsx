@@ -42,12 +42,17 @@ const Home = () => {
 					</span>
 				</div>
 				<div className='div2'>
-					{ data!=null ? (
+					{data != null ? (
 						<>
-							<p><FaUserAlt />{data.data.name}</p>
+							<p>
+								<FaUserAlt />
+								{data.data.name}
+							</p>
 							<span className='floar-right1'>
 								<FaUserAlt />
-								<NavLink onClick={remove} className='color-b'>Logout</NavLink>
+								<NavLink onClick={remove} className='color-b'>
+									Logout
+								</NavLink>
 							</span>
 						</>
 					) : (

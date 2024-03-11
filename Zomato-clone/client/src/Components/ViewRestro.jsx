@@ -1,7 +1,7 @@
 import React from 'react';
-import {useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate,Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './ViewRestro.css';
 
 const ViewRestro = () => {
@@ -34,10 +34,10 @@ const ViewRestro = () => {
 		SetSearch(NewA);
 	};
 
-	const showFood = (id)=>{
+	const showFood = (id) => {
 		// console.log(id,'iiiiiiiiiiiii');
 		navigate(`/view/${id}/product`);
-	}
+	};
 
 	return (
 		<>
@@ -61,15 +61,14 @@ const ViewRestro = () => {
 				<h2 style={{ fontWeight: 400 }} className=''>
 					Best food in the Bhopal
 				</h2>
-				<div className='row   d-flex justify-content-between align-items-center'>
+				<div className='row d-flex justify-content-between align-items-center'>
 					{
 					search.map((res, index) => (
-						<div onClick={()=>showFood(res._id)} key={index} className='card mt-4' style={{ width: '18rem' }}>
+						<div onClick={() => showFood(res._id)} key={index} className='card mt-4 restro-card' style={{ width: '18rem' }}>
 							<img src={res.image} className='card-img-top' alt='Restaurant' />
-							<div className='card-body'>
-							</div>
+							<div className='card-body'></div>
 							<ul className='list-group list-group-flush'>
-							<li className='list-group-item'>Name: {res.name}</li>
+								<li className='list-group-item'>Name: {res.name}</li>
 								<li className='list-group-item'>Address: {res.address}</li>
 								<li className='list-group-item'>Contact: {res.contactNo}</li>
 								<li className='list-group-item'>Opening Time: {res.openingTime}</li>
@@ -80,7 +79,8 @@ const ViewRestro = () => {
 								</Link>
 							</div>
 						</div>
-					))}
+						))
+					}
 				</div>
 			</section>
 		</>

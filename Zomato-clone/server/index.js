@@ -12,7 +12,7 @@ const userRoute = require('./routes/userRoutes.js');
 const restraurantRoute = require('./routes/restraurantRoutes.js');
 const productRoute = require('./routes/productRoutes.js');
 const menuRoute = require('./routes/menuRoutes.js');
-
+const paymentRoutes = require('./routes/payments.js');
 const MONGODB_URL = "mongodb+srv://ZomatoUser:vWw6EJa8R4JpwRCq@zomatoclone.dood9jq.mongodb.net/zomato" // || "mongodb://localhost:27017/zomato";
 mongoose.connect(MONGODB_URL)
 .then((conn)=>{
@@ -34,6 +34,7 @@ app.use('/api',userRoute);
 app.use('/api',restraurantRoute);
 app.use('/api',productRoute);
 app.use('/api',menuRoute);
+app.use('/api',paymentRoutes);
 
 const PORT = process.env.PORT;
 app.listen(PORT,()=>{
