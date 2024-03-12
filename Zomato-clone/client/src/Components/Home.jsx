@@ -93,12 +93,8 @@ const Home = () => {
 				</div>
 			</div>
 			<Card />
-			<section>
-				<City />
-			</section>
-			<footer>
-				<Footer />
-			</footer>
+			<City />
+			<Footer />
 		</div>
 	);
 };
