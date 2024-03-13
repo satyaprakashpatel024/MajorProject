@@ -31,6 +31,9 @@ const Viewfood = () => {
 		let updatedPrduct = [...products];
 		updatedPrduct[indx].quantity = (updatedPrduct[indx].quantity || 0) + 1;
 		setProducts(updatedPrduct);
+
+		const productToAdd = { ...products[indx] };
+		setCart([...cart.filter(item => item._id !== productToAdd._id), productToAdd]);
 		// console.log(products,/'pppppppppppppp');
 		calculateTotalPrice();
 	};
