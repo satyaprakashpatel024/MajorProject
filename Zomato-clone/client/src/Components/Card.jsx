@@ -3,6 +3,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './Card.css';
+
 const Card = () => {
 	return (
 		<div className='container mt-5 w-75'>

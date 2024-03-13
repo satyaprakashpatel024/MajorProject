@@ -68,7 +68,7 @@ const Viewfood = () => {
 
 	const viewCart = () => {
 		console.log(products, 'pppppppppppppp');
-		navigate('/viewcart', { state: { cart, totalPrice } });
+		navigate('/viewcart', { state: { cart, totalPrice ,restaurant} });
 	};
 
 	return (

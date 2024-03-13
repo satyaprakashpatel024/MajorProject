@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@stripe/react-stripe-js": "^2.5.1",
     "@stripe/stripe-js": "^3.0.7",
     "@supabase/supabase-js": "^2.39.7",
@@ -13,6 +15,7 @@
     "bootstrap": "^5.3.2",
     "dotenv": "^16.4.5",
     "env-cmd": "^10.1.0",
+    "fontsome": "^1.0.1",
     "path-browserify": "^1.0.1",
     "react": "^18.2.0",
     "react-bootstrap-v5": "^1.4.0",

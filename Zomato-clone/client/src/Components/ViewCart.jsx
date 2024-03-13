@@ -24,7 +24,8 @@ const BillDetailsCard = ({ totalPrice, discount, gstRate, platformChargeRate }) 
 };
 const ViewCart = () => {
 	const location = useLocation();
-	const { cart, totalPrice: initialTotalPrice } = location.state;
+	const { cart, totalPrice: initialTotalPrice ,restaurant} = location.state;
+	console.log(location.state,'data, cart, total');
 	const [coupon, setCoupon] = useState('');
 	const [discount, setDiscount] = useState(0);
 	const [savedAmount, setSavedAmount] = useState(0);
@@ -63,8 +64,9 @@ const ViewCart = () => {
 
 		const body = {
 			products: cartItems,
+			restaurant: restaurant,
 		};
-		console.log(cartItems,'asdfghjkl');
+		console.log(body,'asdfghjkl');
 		const headers = {
 			'Content-Type': 'application/json',
 		};

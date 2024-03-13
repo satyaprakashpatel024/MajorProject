@@ -8,11 +8,29 @@ let orderSchema = new mongoose.Schema({
 	],
 	restraurant_id: [
 		{
-			type: Schema.Types.ObjectId,
-			ref: 'Restraurant',
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Restrauant',
 		},
 	],
+	restaurant_name: {
+		type: String,
+	},
+	restaurant_address: {
+		type: String,
+	},
+	product_id: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Product',
+		},
+	],
+	name: {
+		type: String,
+	},
 	price: {
+		type: Number,
+	},
+	quantity: {
 		type: Number,
 	},
 	status: {
