@@ -1,9 +1,3 @@
-.cardImage {
-	height: 250px;
-	width: 300px;
+.col-lg-4 {
+	width: 30%;
 }
-
-.cardImage img {
-	width: 100%;
-}
-

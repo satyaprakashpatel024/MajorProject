@@ -55,14 +55,14 @@ router.post('/payment', async (req, res) => {
 router.get('/past-orders', async (req, res) => {
 	try {
 		const orders = await Order.find();
-
+		// console.log(orders);
 		if (!orders) {
 			return res.status(404).json({ message: 'No past orders found' });
 		}
 
 		const ordersWithDetails = await Promise.all(
 			orders.map(async (order) => {
-				const restaurant = await Restraurant.findById(order.restraurant_id);
+				const restaurant = await Restrauant.findById(order.restraurant_id);
 				const products = await Product.find({ _id: { $in: order.product_id } });
 				return { order, restaurant, products };
 			})
@@ -74,7 +74,5 @@ router.get('/past-orders', async (req, res) => {
 		res.status(500).json({ message: 'Internal Server Error' });
 	}
 });
-
-module.exports = router;
 
 module.exports = router;

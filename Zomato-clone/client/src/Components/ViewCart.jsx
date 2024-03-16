@@ -77,6 +77,7 @@ const ViewCart = () => {
 		});
 
 		const session = await response.json();
+		console.log(response,'asdfghjkl');
 
 		const result = stripe.redirectToCheckout({
 			sessionId: session.id,
