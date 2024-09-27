@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './AddProduct.css'; // Import the CSS file
 import axios from 'axios';
 import { useParams } from 'react-router-dom';

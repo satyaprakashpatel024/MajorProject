@@ -6,13 +6,15 @@ import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import AddRestro from './Components/AddRestro';
 import ViewRestro from './Components/ViewRestro.jsx';
-import Viewfood from './Components/ViewFood.jsx';
+import Viewfood from './Components/Viewfood.jsx';
 import AddProduct from './Components/AddProduct.jsx';
 import ViewCart from './Components/ViewCart.jsx';
 import Success from './Components/Success.jsx';
 import Cancel from './Components/Cancel.jsx';
 const App = () => {
 	let isLoggedIn = localStorage.getItem('userData');
+	console.log(isLoggedIn);
+	
 	return (
 		<div className='head'>
 			<Routes>
