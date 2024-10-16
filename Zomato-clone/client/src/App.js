@@ -12,8 +12,8 @@ import ViewCart from "./Components/ViewCart/ViewCart.jsx";
 import Success from "./Components/Success/Success.jsx";
 import Cancel from "./Components/Cancel/Cancel.jsx";
 const App = () => {
-	let isLoggedIn = localStorage.getItem("userData");
-	console.log(isLoggedIn);
+	let isLoggedIn = JSON.parse(localStorage.getItem("userData"));
+	// console.log(isLoggedIn?.data?.role);
 
 	return (
 		<div className="head">

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './AddRestro.css'; // Import the CSS file
+import conf from "../EnvironmentVariables/environmentVariables";
 import axios from 'axios';
 
 import { createClient } from '@supabase/supabase-js';
-const supabaseUrl = 'https://oxndvhwlazbwmnrzblia.supabase.co';
-const supabaseKey =
-	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94bmR2aHdsYXpid21ucnpibGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDkzMDI0MDQsImV4cCI6MjAyNDg3ODQwNH0.rXvWMF3kJ6SNPqV4DFJnAlrKWPmJPOGrRFsW1mmqRPI';
+const supabaseUrl = conf.REACT_APP_SUPABASE_URL;
+const supabaseKey = conf.REACT_APP_SUPABASE_KEY
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const AddRestaurant = () => {

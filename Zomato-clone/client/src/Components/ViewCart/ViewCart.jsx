@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
+import conf from "../EnvironmentVariables/environmentVariables";
 import './ViewCart.css';
 
 const BillDetailsCard = ({ totalPrice, discount, gstRate, platformChargeRate }) => {
@@ -25,13 +26,11 @@ const BillDetailsCard = ({ totalPrice, discount, gstRate, platformChargeRate }) 
 const ViewCart = () => {
 	const location = useLocation();
 	const { cart, totalPrice: initialTotalPrice ,restaurant} = location.state;
-	console.log(location.state,'data, cart, total');
 	const [coupon, setCoupon] = useState('');
 	const [discount, setDiscount] = useState(0);
 	const [savedAmount, setSavedAmount] = useState(0);
 	const [totalPrice, setTotalPrice] = useState(initialTotalPrice);
 	const [cartItems, setCartItems] = useState(cart);
-	// const [paymentError, setPaymentError] = useState(null);
 
 	const handleApplyCoupon = () => {
 		switch (coupon) {
@@ -56,11 +55,12 @@ const ViewCart = () => {
 		setCoupon(e.target.value);
 	};
 
+	let STRIPE_PUBLICKEY = conf.REACT_APP_STRIPE_PUBLICKEY;
+	// console.log(STRIPE_PUBLICKEY,'rrrrrrrrrrrr');
 	const handlePayment = async () => {
 		// Implement payment logic here
-		// let string = process.env.STRIPE_PUBLICKEY;
-		// console.log(string,'rrrrrrrrrrrr');
-		const stripe = await loadStripe('pk_test_51Ot7uHSJCOKGxHa5iHD1CUA2zc3z3hddqPWI1kPhCB0cgh6ksChvX3Gcqh8VN9X9F6XaPpUVZOpCid1CrhzJvwwz00VwgCx0Uz');
+		
+		const stripe = await loadStripe(STRIPE_PUBLICKEY);
 
 		const body = {
 			products: cartItems,

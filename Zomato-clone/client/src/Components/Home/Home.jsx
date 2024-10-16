@@ -14,9 +14,7 @@ const Home = () => {
 	const [data, setData] = useState(null);
 	useEffect(() => {
 		let data = localStorage.getItem("userData");
-		// console.log(data);
 		let newData = JSON.parse(data);
-		// console.log(newData);
 		setData(newData);
 	}, []);
 
@@ -24,6 +22,7 @@ const Home = () => {
 		localStorage.clear();
 		setData(null);
 	};
+
 
 	return (
 		<div className="">
@@ -37,9 +36,10 @@ const Home = () => {
 						</NavLink>
 					</span>
 					<span className="floar-right2">
+						{data && data?.data?.role==="admin" &&
 						<NavLink to="/addrestro" className="color-b">
 							Add Restaurant
-						</NavLink>
+						</NavLink>}
 					</span>
 				</div>
 				<div className="div2">
@@ -47,7 +47,7 @@ const Home = () => {
 						<>
 							<p>
 								<FaUserAlt />
-								{data.data.name}
+								{data?.data?.name}
 							</p>
 							<span className="floar-right1">
 								<FaUserAlt />
